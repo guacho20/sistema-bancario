@@ -1,0 +1,272 @@
+<header id="header-top" class="header-top"></header>
+<div class="container-fluid">
+    <!-- <div class="col-12">
+        <h4 class="m-b-0"><strong>Seguimiento de PDOT</strong></h4>
+        <p class="text-muted m-t-0 font-12">Cards include various options for customizing their backgrounds,
+            borders, and color.<code>.card-primary info, warning, danger</code></p>
+    </div> -->
+    <div class="row" *ngIf="isDibujar">
+        <div class="col-md-5 col-12">
+            <div class="card card-outline-inverse">
+                <div class="card-header">
+                    <h4 class="m-b-0 text-white"><strong>Seguimiento de PDOT</strong></h4>
+                </div>
+                <div class="card-body">
+                    <div class="row no-print">
+                        <div class="col-12">
+                            <button (click)="actualizar()"
+                                class="btn-sm btn waves-effect waves-light btn-outline-primary float-right"><i
+                                    class="fa  fa-refresh"></i> Actualizar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><strong>Proyecto:</strong> </label>
+                        <ngp-combo #comProyecto width="500px"></ngp-combo>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><strong>Meta:</strong> </label>
+                        <ngp-combo #comMeta width="500px"></ngp-combo>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><strong>Indicador:</strong> </label>
+                        <ngp-combo #comIndicador width="500px"></ngp-combo>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 col-12">
+            <div class="card card-outline-inverse">
+                <div class="card-header">
+                    <h4 class="m-b-0 text-white"><strong>Gráfico estadístico</strong></h4>
+                </div>
+                <div class="card-body">
+                    <div class="row no-print">
+                        <div class="col-12">
+                            <!--  <select [(ngModel)]="isTipo" class="float-right" style="width: 150px; "
+                                class="custom-select mr-2">
+                                <option value="1">Barra</option>
+                                <option value="2">Dona</option>
+                                <option value="3">Polar Area</option>
+                                <option value="4">Radar</option>
+                            </select> -->
+                            <button type="button"
+                                class="btn-sm btn waves-effect waves-light btn btn-primary  float-right"
+                                style="margin-right: 5px;" data-toggle="dropdown">
+                                <i class="fa fa-download"></i> Exportar</button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" (click)="crearImagenPng()" style="cursor: pointer;">Descargar
+                                    Imagen PNG</a>
+                                <a class="dropdown-item" (click)="crearImagenJpeg()" style="cursor: pointer;">Descargar
+                                    Imagen JPG</a>
+                                <a class="dropdown-item" (click)="crearPdf()" style="cursor: pointer;">Descargar
+                                    PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="contenido">
+                        <p-chart *ngIf="isTipo==1" height="255px" type="bar" [data]="basicData"
+                            [options]="basicOptions"></p-chart>
+                        <p-chart *ngIf="isTipo==2" type="doughnut" [data]="basicData"></p-chart>
+                        <p-chart *ngIf="isTipo==3" type="polarArea" [data]="basicData"></p-chart>
+                        <p-chart *ngIf="isTipo==4" type="radar" [data]="basicData"></p-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-outline-inverse">
+            <div class="card-body">
+                <p-table #dt [value]="datos" styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
+                    [rowHover]="true" [rows]="5" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,25]"
+                    [loading]="false" [paginator]="true" paginatorPosition="top"
+                    currentPageReportTemplate="Página {currentPage} de {totalPages}" alwaysShowPaginator="true"
+                    showJumpToPageDropdown="true">
+        
+                    <ng-template pTemplate="paginatorleft" let-state>
+                        Registros ({{state.totalRecords}})
+                    </ng-template>
+                    <ng-template pTemplate="paginatorright">
+                        <button (click)="exportExcel()" pTooltip="XLS"
+                            class="btn-sm btn waves-effect waves-light btn-success mr-2 float-right"><i
+                                class="pi pi-file-excel"></i>
+                        </button>
+                        <button (click)="exportPdf()" pTooltip="PDF"
+                            class="btn-sm btn waves-effect waves-light btn-info mr-2 float-right"><i
+                                class="pi pi-file-pdf"></i>
+                        </button>
+                    </ng-template>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th class="width100" pSortableColumn="detalle_proyecto">
+                                Proyecto
+                                <p-sortIcon field="detalle_proyecto"></p-sortIcon>
+                            </th>
+                            <th class="width100" pSortableColumn="detalle_meta">
+                                Meta
+                                <p-sortIcon field="detalle_meta"></p-sortIcon>
+                            </th>
+                            <th class="width100" pSortableColumn="abreviatura_ystmen" style="width: 7rem">
+                                Abreviatura
+                                <p-sortIcon field="abreviatura_ystmen"></p-sortIcon>
+                            </th>
+                            <th class="width100" pSortableColumn="detalle_perspectiva">
+                                Indicador
+                                <p-sortIcon field="detalle_perspectiva"></p-sortIcon>
+                            </th>
+                            <th class="width100" pSortableColumn="suma_porce" style="width: 7rem">
+                                Avance
+                                <p-sortIcon field="suma_porce"></p-sortIcon>
+                            </th>
+                            <th class="width100" pSortableColumn="anio" style="width: 5rem">
+                                Año
+                                <p-sortIcon field="anio"></p-sortIcon>
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-item>
+                        <tr>
+                            <td class="text-justify">{{item.detalle_proyecto}}</td>
+                            <td class="text-justify">{{item.detalle_meta}}</td>
+                            <td class="text-center">{{item.abreviatura_ystmen}}</td>
+                            <td class="text-justify">{{item.detalle_perspectiva}}</td>
+                            <td class="text-right">{{item.suma_porce}}</td>
+                            <td class="text-center">{{item.anio}}</td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage">
+                        <tr>
+                            <td colspan="8">No se encontraron registros.</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+                <!--   <p-table [value]="datos" styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+                <ng-template pTemplate="paginatorleft" let-state>
+                    Registros ({{state.totalRecords}})
+                </ng-template>
+                <ng-template pTemplate="paginatorright">
+                    <button (click)="actualizar()"
+                    class="btn-sm btn waves-effect waves-light btn-outline-info float-right"><i
+                        class="fa fa-download"></i> Actualizar
+                </button>
+                   
+                </ng-template>
+               
+                <ng-template pTemplate="header">
+                <tr>
+                    <tr>
+                        <th class="width100" pSortableColumn="detalle_proyecto">
+                            Proyecto
+                            <p-sortIcon field="detalle_proyecto"></p-sortIcon>
+                        </th>
+                        <th class="width100" pSortableColumn="detalle_meta">
+                            Meta
+                            <p-sortIcon field="detalle_meta"></p-sortIcon>
+                        </th>
+                        <th  pSortableColumn="abreviatura_ystmen" style="width: 7rem">
+                            Abreviatura
+                            <p-sortIcon field="abreviatura_ystmen"></p-sortIcon>
+                        </th>
+                        <th class="width100" pSortableColumn="detalle_perspectiva">
+                            Indicador
+                            <p-sortIcon field="detalle_perspectiva"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="suma_porce" style="width: 7rem">
+                            Avance
+                            <p-sortIcon field="suma_porce"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="anio" style="width: 5rem">
+                            Año
+                            <p-sortIcon field="anio"></p-sortIcon>
+                        </th>
+                    </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+                <tr>
+                    <td class="text-justify">{{item.detalle_proyecto}}</td>
+                    <td class="text-justify">{{item.detalle_meta}}</td>
+                    <td class="text-center">{{item.abreviatura_ystmen}}</td>
+                    <td class="text-justify">{{item.detalle_perspectiva}}</td>
+                    <td class="text-right">{{item.suma_porce}}</td>
+                    <td class="text-center">{{item.anio}}</td>
+                </tr>
+            </ng-template>
+            
+        </p-table> -->
+            </div>
+        </div>
+        <div class="col-12 m-b-2">
+
+            <!--  -->
+        </div>
+        <hr>
+    </div>
+    <div class="row" *ngIf="!isDibujar">
+        <div class="col-md-5 col-12">
+            <div class="card card-outline-inverse">
+                <div class="card-header">
+                    <h4 class=" m-b-0 text-white"><strong>Seguimiento de PDOT</strong></h4>
+                </div>
+                <div class="card-body">
+                    <p-skeleton width="5rem" styleClass="p-mb-2"></p-skeleton>
+                    <p-skeleton height="2rem" styleClass="p-mb-2"></p-skeleton>
+                    <p-skeleton width="5rem" styleClass="p-mb-2"></p-skeleton>
+                    <p-skeleton height="2rem" styleClass="p-mb-2"></p-skeleton>
+                    <p-skeleton width="5rem" styleClass="p-mb-2"></p-skeleton>
+                    <p-skeleton height="2rem" styleClass="p-mb-2"></p-skeleton>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 col-12">
+            <div class="card card-outline-inverse">
+                <div class="card-header">
+                    <h4 class="m-b-0 text-white"><strong>Gráfico estadístico</strong></h4>
+                </div>
+                <div class="card-body">
+                    <p-skeleton width="100%" height="200px"></p-skeleton>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 m-t-0">
+            <p-table [value]="[1,1,1,1,1,1,1,1,1,1]">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Proyecto</th>
+                        <th>Meta</th>
+                        <th>Abreviatura</th>
+                        <th>Indicador</th>
+                        <th>Avance</th>
+                        <th>Año</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>
+                            <p-skeleton></p-skeleton>
+                        </td>
+                        <td>
+                            <p-skeleton></p-skeleton>
+                        </td>
+                        <td>
+                            <p-skeleton></p-skeleton>
+                        </td>
+                        <td>
+                            <p-skeleton></p-skeleton>
+                        </td>
+                        <td>
+                            <p-skeleton></p-skeleton>
+                        </td>
+                        <td>
+                            <p-skeleton></p-skeleton>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+</div>
+<footer class="footer text-center">
+    <strong>Copyright &copy; 2021 <a routerLink="/">SIGAP</a> </strong> (Sistema Integrado Geográfico de
+    Administración Pública).
+</footer>

@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canDeactivate: [DestroySessionGuard] },
   { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) },
   { path: 'auditoria', loadChildren: () => import('./auditoria/auditoria.module').then(m => m.AuditoriaModule) },
-  { path: 'gerencialpdot', loadChildren: () => import('./gerencialpdot/gerencialpdot.module').then(m => m.GerencialpdotModule) },
+  { path: 'cuenta-bancaria', loadChildren: () => import('./cuenta-bancaria/cuenta-bancaria.module').then(m => m.CuentaBancariaModule) },
   { path: 'seguridad', loadChildren: () => import('./seguridad/seguridad.module').then(m => m.SeguridadModule) },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 ];

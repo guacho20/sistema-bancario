@@ -1,0 +1,115 @@
+.fast {
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.text-red {
+    color: red;
+    font-weight: bold;
+}
+
+.box {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+}
+
+.box.box-info {
+    border-top-color: #00c0ef !important;
+}
+
+.box .card-body {
+    padding: 0rem !important;
+}
+
+.card .card-body {
+    padding: 0.9rem !important;
+}
+
+.selector,
+.cursor {
+    cursor: pointer;
+}
+
+.w20 {
+    width: 20px;
+}
+
+.swal2-container .swal2-popup {
+    transition-property: all !important;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition-duration: 150ms !important;
+    transition-delay: 150ms !important;
+    padding: 0.5rem !important;
+}
+
+.swal2-image {
+    margin: 0 !important;
+}
+
+.swal2-actions {
+    margin-top: 1rem !important;
+    padding: 0 !important;
+}
+
+.swal2-content {
+    text-align: center !important;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+    color: #6b7280 !important;
+    font-weight: 500 !important;
+    margin-top: 0.5rem !important;
+}
+
+.swal2-header {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.swal2-title {
+    padding: 0 !important;
+    text-align: center !important;
+    margin-top: 0 !important;
+    font-weight: 500 !important;
+    color: #111827 !important;
+    font-size: 1.125rem !important;
+    line-height: 1.75rem !important;
+}
+
+.swal2-icon {
+    margin: 0.5em auto .6em !important;
+}
+
+.swal2-icon-content {
+    font-size: 2.75em !important;
+}
+
+.swal2-html-container {
+    padding: 0rem !important;
+    color: #545454;
+    font-size: 1rem !important;
+}
+
+.swal2-styled.swal2-confirm {
+    border-radius: .25em;
+    background-color: #001f3f !important;
+    color: #fff !important;
+    font-size: 0.8rem !important;
+}
+
+.img-size-40 {
+    width: 40px;
+}
+
+.estatico {
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}

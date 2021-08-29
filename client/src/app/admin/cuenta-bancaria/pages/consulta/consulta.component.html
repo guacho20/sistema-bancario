@@ -1,0 +1,20 @@
+<app-breadcrumbs soloBreadcrums=true titulo="Consulta de transacciones bancarias">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+        <li class="breadcrumb-item">Cuenta banacaria</li>
+        <li class="breadcrumb-item active">Consulta transaciones</li>
+    </ol>
+</app-breadcrumbs>
+<ngp-barra>
+    <ngp-rango-fecha #ranFechas></ngp-rango-fecha>
+    <!--  <ngp-combo #comUsuarios label="Usuario:"></ngp-combo> -->
+</ngp-barra>
+<div class="row">
+    <div class="col-12">
+        <div class="box box-info">
+            <div class="card-body">
+                <ngp-tabla #tabTabla1></ngp-tabla>
+            </div>
+        </div>
+    </div>
+</div>
