@@ -1,0 +1,20 @@
+<app-breadcrumbs #barBotones>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="/dashboard">Home</a>
+        </li>
+        <li class="breadcrumb-item">Gerencial</li>
+        <li class="breadcrumb-item active">Direcciones</li>
+    </ol>
+</app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card card-hover">
+            <div class="card-header bg-info">
+            </div>
+            <div class="card-body">
+                <ngp-tabla #tabTabla1></ngp-tabla>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="login">
+    <img class="img-fondo" src="https://cdn.lynda.com/course/2825474/2825474-1598256576474-16x9.jpg">
+    <div class="izquierda">
+    </div>
+    <div class="derecha">
+        <div class="login-box animated fadeIn fast">
+            <div class="login-logo">
+                <a [routerLink]="['/']" class="title"><b>SIGAP</b></a>
+                <p class="slogan">SISTEMA INTEGRADO GEOGRÁFICO DE ADMINISTRACIÓN PÚBLICA</p>
+            </div>
+            <div class="card card-outline card-navy">
+                <div class="card-body">
+                    <p class="login-box-msg">Inicia sesión para acceder al sistema</p>
+
+                    <form [formGroup]="loginForm" (ngSubmit)="login()" class="needs-validation" novalidate>
+                        <div class="input-group mb-3">
+                            <input type="text" formControlName="username" maxlength="25" class="form-control" [class.is-invalid]="isInvalidField('username')" placeholder="Usuario">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fa fa-user"></span>
+                                </div>
+                            </div>
+                            <span class="error invalid-feedback">{{getErrorMessage('username')}}</span>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" formControlName="password" maxlength="25" class="form-control" [class.is-invalid]="isInvalidField('password')" placeholder="Contraseña">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fa fa-lock"></span>
+                                </div>
+                            </div>
+                            <span class="error invalid-feedback">{{getErrorMessage('password')}}</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="icheck-primary">
+                                    <input formControlName="remember" type="checkbox" id="remember">
+                                    <label for="remember"> Recuérdame</label>
+                                </div>
+                            </div>
+                            <!-- <div class="col-4">
+                                <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+                            </div> -->
+                        </div>
+                        <div class="form-group text-center m-t-0">
+                            <button class="btn btn-info btn-block text-uppercase btn-rounded" type="submit">ingresar</button>
+                        </div>
+                        <!-- <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" formControlName="username" [class.is-invalid]="isInvalidField('username')" placeholder="Username">
+                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                <div class="error invalid-feedback">{{getErrorMessage('username')}}</div>
+                            </div>
+                            <span class="error invalid-feedback"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="password" formControlName="password" class="form-control" [class.is-invalid]="isInvalidField('password')" placeholder="Contraseña">
+                                <div class="input-group-addon"><i class="fa fa-lock"></i></div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <div class="checkbox checkbox-primary pull-left p-t-0">
+                                    <input formControlName="remember" type="checkbox">
+                                    <label for="checkbox-signup"> Remember me </label>
+                                </div>
+                                <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Olvidó su contraseña?</a> </div>
+                        </div>
+                        <label for="validationCustomUsername" class="form-label">Username</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text" id="inputGroupPrepend">@</span>
+                            <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                         -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="hold-transition login-page">
+    
+</div>
+-->
+<app-change-password [(display)]="isChangePassword" [actualPassword]="passwordActual" [datos]="data" (close)="closeDialogo($event)"></app-change-password>

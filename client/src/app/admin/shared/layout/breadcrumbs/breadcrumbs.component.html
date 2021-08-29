@@ -1,0 +1,16 @@
+<div class="row page-titles breadcrumb">
+    <div class="col-md-5 align-self-center">
+        <h3 *ngIf="soloBreadcrums" class="text-themecolor">{{titulo}}</h3>
+        <ng-container *ngIf="!soloBreadcrums">
+            <ngp-boton #botInsertar id="botInsertar" *ngIf="isBotonInsertar" icono="pi pi-plus" texto="Insertar" color="info" (click)="insertar($event)">
+            </ngp-boton>
+            <ngp-boton #botGuardar id="botGuardar" *ngIf="isBotonGuardar" icono="pi pi-save" texto="Guardar" color="success" (click)="guardar($event)">
+            </ngp-boton>
+            <ngp-boton #botEliminar id="botEliminar" *ngIf="isBotonEliminar" icono="pi pi-trash" texto="Eliminar" color="danger" (click)="eliminar($event)">
+            </ngp-boton>
+        </ng-container>
+    </div>
+    <div class="col-md-7 align-self-center">
+        <ng-content></ng-content>
+    </div>
+</div>

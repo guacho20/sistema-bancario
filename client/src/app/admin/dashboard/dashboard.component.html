@@ -1,0 +1,112 @@
+<div class="alert alert-primary alert-dismissible">
+    <i class="icon fa fa-info"></i> Bienvenido <strong>{{user.nombre|uppercase}}</strong>, Al Sistema Integrado Geográfico de Administración Pública (SIGAP).
+</div>
+<div class="row" *ngIf="usuario">
+    <!-- Column -->
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="d-flex flex-row">
+                <div class="p-10 bg-info">
+                    <h3 class="text-white box-cards m-b-0"><i class="fa fa-user"></i></h3>
+                </div>
+                <div class="align-self-center m-l-20">
+                    <h3 class="m-b-0 text-info">USUARIO</h3>
+                    <h5 class="text-muted m-b-0">{{usuario.username |uppercase}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-lg-3 col-md-6">
+        <div class="card ">
+            <div class="d-flex flex-row">
+                <div class="p-10 bg-success">
+                    <h3 class="text-white box-cards m-b-0"><i class="ti-wallet"></i></h3>
+                </div>
+                <div class="align-self-center m-l-20">
+                    <h3 class="m-b-0 text-success">PERFIL</h3>
+                    <h5 class="text-muted m-b-0">{{usuario.perfil |uppercase}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="d-flex flex-row">
+                <div class="p-10 bg-inverse">
+                    <h3 class="text-white box-cards m-b-0"><i class="ti-desktop"></i></h3>
+                </div>
+                <div class="align-self-center m-l-20">
+                    <h3 class="m-b-0">DIRECCIÓN IP</h3>
+                    <h5 class="text-muted m-b-0">{{ip}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="d-flex flex-row">
+                <div class="p-10 bg-primary">
+                    <h3 class="text-white box-cards m-b-0"><i class="ti-calendar"></i></h3>
+                </div>
+                <div class="align-self-center m-l-20">
+                    <h3 class="m-b-0 text-primary">ÚLTIMO ACCESO</h3>
+                    <h5 class="text-muted m-b-0">{{fechaUltimoAcceso}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white"><i class="fa fa-desktop mr-2"></i> PANTALLAS MÁS USADAS</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover table-sm text-nowrap">
+                    <tbody>
+                        <tr *ngFor="let pantalla of pantallas">
+                            <td class="w20"><i class="fa fa-desktop"></i></td>
+                            <td class="cursor">{{pantalla.nombre_segopc}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header bg-info">
+                <h4 class="m-b-0 text-white"><i class="fa fa-desktop mr-2"></i> DISPOSITIVO</h4>
+            </div>
+            <div class="card-body">
+                <table class="table browser no-border">
+                    <tbody>
+                        <tr>
+                            <td style="width:40px">
+                                <img src="assets/images/browser/firefox-logo.png" alt="logo">
+                            </td>
+                            <td>{{userAgent.browser.name }}</td>
+                            <td class="text-right"><label class="badge bg-danger float-right">Ver. {{userAgent.browser.version }}</label></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i *ngIf="dispositivo==='movil'" class="fa fa-mobile-alt fa-2x"></i>
+                                <i *ngIf="dispositivo==='desktop'" class="fa fa-desktop fa-2x text-navy"></i>
+                            </td>
+                            <td>{{sistemaOperativo.nombre}}</td>
+                            <td class="text-right"><span class="float-right"><i class="fa-2x" [ngClass]="sistemaOperativo.icono"></i></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

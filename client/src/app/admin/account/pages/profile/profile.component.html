@@ -1,0 +1,70 @@
+<div class="card-body">
+    <form [formGroup]="profilForm" (ngSubmit)="savePassword()" class="form-horizontal">
+        <div class="form-body">
+            <h3 class="box-title">Datos de usuario</h3>
+            <hr class="m-t-0">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="mb-0">Perfil: </label>
+                        <input type="text" class="form-control" [class.is-invalid]="isInvalidField('perfil')" formControlName="perfil" placeholder="Enter email">
+                        <span class="error invalid-feedback">{{getErrorMessage('perfil')}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="mb-0">Fecha registro: </label>
+                        <input type="text" class="form-control" [class.is-invalid]="isInvalidField('fecha_reg_segusu')" formControlName="fecha_reg_segusu" placeholder="Password">
+                        <span class="error invalid-feedback">{{getErrorMessage('fecha_reg_segusu')}}</span>
+                    </div>
+                    <div class="form-group mt-0">
+                        <label class="mb-0">Nombre: </label>
+                        <input type="text" maxlength="100" class="form-control" [class.is-invalid]="isInvalidField('nombre')" formControlName="nombre" placeholder="Password">
+                        <span class="error invalid-feedback">{{getErrorMessage('nombre')}}</span>
+                    </div>
+                    <!--  <div class="form-group">
+                        <label class="mb-0">Avatar: </label>
+                        <select class="form-control select2bs4 select2-hidden-accessible" (change)="actualizarFoto($event.target.value)" style="width: 100%;" data-select2-id="17" tabindex="-1" aria-hidden="true">
+                            <option formArrayName="foto" selected="selected" *ngFor="let avatar of avatars"
+                                [value]="avatar.value">
+                                {{avatar.label}}
+                            </option>
+                        </select>
+
+                    </div> -->
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="mb-0">Usuario: </label>
+                        <input type="text" class="form-control" [class.is-invalid]="isInvalidField('username')" formControlName="username" placeholder="Password">
+                        <span class="error invalid-feedback">{{getErrorMessage('username')}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="mb-0">Fecha caducidad: </label>
+                        <input type="text" class="form-control" [class.is-invalid]="isInvalidField('fecha_caduc_segusu')" formControlName="fecha_caduc_segusu" placeholder="Password">
+                        <span class="error invalid-feedback">{{getErrorMessage('fecha_caduc_segusu')}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="mb-0">Correo: </label>
+                        <input type="text" maxlength="100" class="form-control" [class.is-invalid]="isInvalidField('correo_segusu')" formControlName="correo_segusu" placeholder="Correo electronico">
+                        <span class="error invalid-feedback">{{getErrorMessage('correo_segusu')}}</span>
+                    </div>
+                    <!-- <div class="form-group">
+                        <img [src]="usuario.foto" alt="foto_user" class="img-circle" style="width: 80px;">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="form-actions">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-12">
+                            <button type="submit" class="btn btn-success float-right">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"> </div>
+            </div>
+        </div>
+    </form>
+</div>

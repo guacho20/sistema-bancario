@@ -1,0 +1,57 @@
+<header class="topbar">
+    <nav class="navbar top-navbar navbar-expand-md navbar-light">
+        <!-- ============================================================== -->
+        <!-- Logo -->
+        <!-- ============================================================== -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                <!-- Logo icon --><b>
+                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                    <!-- Dark Logo icon -->
+                    <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                    <!-- Light Logo icon -->
+                    <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                </b>
+                <!--End Logo icon -->
+                <!-- Logo text --><span>
+                 <!-- dark Logo text -->
+                 <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                 <!-- Light Logo text -->    
+                 <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+        </div>
+        <div class="navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <!-- This is  -->
+                <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                <li class="nav-item hidden-sm-down"></li>
+            </ul>
+            <ul class="navbar-nav my-lg-0">
+                <li class="nav-item dropdown" *ngIf="usuario">
+                    <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="assets/avatar/128_3.png" alt="user" class="profile-pic" />
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right animated fadeIn fast">
+                        <ul class="dropdown-user">
+                            <li>
+                                <div class="dw-user-box">
+                                    <div class="u-img"><img src="assets/avatar/128_3.png" alt="user"></div>
+                                    <div class="u-text">
+                                        <h4>{{usuario.nombre}}</h4>
+                                        <p class="text-muted">{{usuario.perfil}}</p>
+                                        <a [routerLink]="['account/profile']" (click)="onClick('account/profile')" class="btn btn-rounded btn-danger btn-sm"> Ver perfil</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a (click)="onClick('account/profile')" [routerLink]="['account/profile']" routerLinkActive="active"><i class="fa fa-user mr-3"></i> Perfil</a></li>
+                            <li><a (click)="onClick('account/change-password')" [routerLink]="['account/change-password']" routerLinkActive="active"><i class="fa fa-lock mr-3"></i>Cambiar contraseña</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a (click)="logout()"><i class="fa fa-power-off mr-3"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

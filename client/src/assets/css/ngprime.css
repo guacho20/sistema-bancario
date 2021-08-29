@@ -1,0 +1,134 @@
+/* TOOLTIP */
+
+.p-tooltip .p-tooltip-text {
+    font-size: 0.8rem !important;
+}
+
+
+/* TIEREDMENU */
+
+.p-tieredmenu .p-menuitem-link {
+    font-size: 0.8rem !important;
+    padding: 0.5rem 1rem !important;
+}
+
+
+/*  CONTEXTMENU */
+
+.p-contextmenu .p-menuitem-link {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.8rem !important;
+}
+
+
+/* AUTO COMPLETE */
+
+.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item {
+    padding: 0.1rem 1rem !important;
+    font-size: 0.8rem !important;
+}
+
+.p-autocomplete-panel .p-autocomplete-items:not(.p-autocomplete-virtualscroll) {
+    padding: 0.2rem 0 !important;
+}
+
+.p-paginator .p-paginator-first,
+.p-paginator .p-paginator-prev,
+.p-paginator .p-paginator-next,
+.p-paginator .p-paginator-last {
+    background-color: transparent !important;
+    border: 0px solid #dee2e6 !important;
+    padding: 0px !important;
+}
+
+.p-dropdown .p-dropdown-panel {
+    max-width: 600px !important;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-empty-message {
+    padding-left: 0.5rem !important;
+    font-size: 0.8rem !important;
+    margin: 0rem !important;
+}
+
+.p-dropdown-panel {
+    max-width: 400px !important;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    padding: 0.1rem 0.1rem !important;
+    font-size: 0.8rem !important;
+}
+
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter {
+    height: 25px !important;
+    padding: 0% !important;
+    margin: 0% !important;
+    font-size: 0.8rem !important;
+}
+
+.p-fluid .p-fileupload .p-button {
+    height: 30px;
+    font-size: 0.85rem;
+    border: 0;
+}
+
+.p-dialog .p-dialog-header {
+    background: #001f3f !important;
+    color: #fff !important;
+    padding: 0.5rem !important;
+}
+
+.p-dialog .p-dialog-content {
+    padding: 0.5rem !important;
+}
+
+.p-fileupload .p-fileupload-buttonbar {
+    padding: 0.5rem !important;
+}
+
+.p-fileupload .p-fileupload-buttonbar .p-button {
+    margin-right: 0.5rem !important;
+    height: 30px !important;
+    font-size: 0.8rem !important;
+}
+
+.p-fileupload .p-fileupload-content {
+    padding: 0.5rem !important;
+    font-size: 0.8rem !important;
+}
+
+.p-fileupload .p-fileupload-row>div {
+    padding: 0.5rem !important;
+}
+
+.p-fileupload-row>div {
+    flex: none !important;
+    width: 25% !important;
+}
+
+.p-button .p-button-icon-left {
+    font-size: 0.8rem !important;
+}
+
+.p-button.p-button-icon-only {
+    padding: 0rem !important;
+    height: 30px !important;
+}
+
+.p-message {
+    margin: 0.2rem !important;
+}
+
+.p-message .p-message-wrapper {
+    padding: 0.5rem !important;
+    font-size: 0.8rem !important;
+}
+
+.p-message .p-message-summary {
+    font-size: 0.8rem !important;
+}
+
+.col-3.centrar {
+    text-align: center;
+}

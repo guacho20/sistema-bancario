@@ -1,0 +1,59 @@
+<!-- <section class="content-header layout-navbar-fixed">
+    <div class="container-fluid">
+        <div *ngIf="soloBreadcrums" class="row">
+            <div class="col-sm-6">
+                <h1 class="m-0">{{titulo}}</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right" *ngFor="let item of items">
+                    <li [ngClass]="item.estilo"><a href="#">{{item.data}}</a></li>
+                    <!-- <li class="breadcrumb-item active">Dashboard v1</li>
+                </ol>
+            </div>
+        </div>
+        <div *ngIf="!soloBreadcrums" class="row">
+            <div class="col-sm-6">
+                <h1 *ngIf="isQuitarBotones" class="m-0">{{titulo}}</h1>
+                <ngp-boton #botInsertar id="botInsertar" *ngIf="isBotonInsertar" icono="pi pi-plus" texto="Insertar" color="info" (click)="insertar($event)"></ngp-boton>
+                <ngp-boton #botGuardar id="botGuardar" *ngIf="isBotonGuardar" icono="pi pi-save" texto="Guardar" color="success" (click)="guardar($event)"></ngp-boton>
+                <ngp-boton #botEliminar id="botEliminar" *ngIf="isBotonEliminar" icono="pi pi-trash" texto="Eliminar" color="danger" (click)="eliminar($event)"></ngp-boton>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <ng-template *ngFor="let item of items">
+                        {{item.data}}
+                    </ng-template>
+                    <!--  <li class="breadcrumb-item"><a href="#">home</a></li>
+                    <li class="breadcrumb-item active">seguridad</li>
+                    <li class="breadcrumb-item active">usuario</li> 
+                </ol>
+                <!--  <ol class="breadcrumb float-sm-right" *ngFor="let item of items">
+                    <li class="breadcrumb-item"><a href="#">{{item.data}}</a></li>
+                </ol> 
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid 
+</section> -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-0">
+            <div class="col-sm-6">
+                <h1 class="m-0">Dashboard</h1>
+                <ngp-boton #botInsertar id="botInsertar" *ngIf="isBotonInsertar" icono="pi pi-plus" texto="Insertar" color="info" (click)="insertar($event)"></ngp-boton>
+                <ngp-boton #botGuardar id="botGuardar" *ngIf="isBotonGuardar" icono="pi pi-save" texto="Guardar" color="success" (click)="guardar($event)"></ngp-boton>
+                <ngp-boton #botEliminar id="botEliminar" *ngIf="isBotonEliminar" icono="pi pi-trash" texto="Eliminar" color="danger" (click)="eliminar($event)"></ngp-boton>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard v1</li>
+                </ol>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
