@@ -3,7 +3,7 @@ import cors from 'cors';
 
 import auth from './../routes/auth';
 import seguridad from './../routes/seguridad';
-
+import banco from './../routes/banco';
 class Server {
 
     private app: Application;
@@ -22,6 +22,7 @@ class Server {
     routes() {
         this.app.use(auth);
         this.app.use(seguridad);
+        this.app.use(banco);
     }
 
     listen() {

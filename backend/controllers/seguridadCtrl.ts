@@ -377,7 +377,19 @@ export const esUnico = async (req: Request, res: Response) => {
     // console.log(sql);
     try {
         const data = await Pool.consultar(sql, [valorCampo]);
-        console.log(data);
+        // console.log(data);
+        res.json({ error: false, datos: data });
+    } catch (error) {
+        console.log(error.detail);
+        res.status(400).json(error);
+    }
+}
+
+export const usuarioActivos = async (req: Request, res: Response) => {
+    const sql = `select ide_segusu as value, nombre_segusu ||' - '||username_segusu as label from seg_usuario where activo_segusu =true`;
+    try {
+        const data = await Pool.consultar(sql);
+        // console.log(data);
         res.json({ error: false, datos: data });
     } catch (error) {
         console.log(error.detail);
@@ -453,6 +465,7 @@ async function getSquema(nombreTabla: string) {
     from information_schema.columns
     where table_name = $1`;
     const data = await Pool.consultar(query, [nombreTabla]);
+    // console.log(data);
     return data;
 }
 

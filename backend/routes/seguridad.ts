@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { validarJWT } from '../middleware/validarJwt';
-import { getColumna, getConsultarTabla, getConsultarArbol, getCombo, egecutarListaSql, getEliminar, getOpciones, auditoriaAccesoPantalla, esUnico, getClientes, getReglasClaveString, cambiarClave, changePassword, saveUser, getConsultaGenerica, updateGenerico, resetPassword } from '../controllers/seguridadCtrl';
+import { getColumna, getConsultarTabla, getConsultarArbol, getCombo, egecutarListaSql, getEliminar, getOpciones, auditoriaAccesoPantalla, esUnico, getClientes, getReglasClaveString, cambiarClave, changePassword, saveUser, getConsultaGenerica, updateGenerico, resetPassword, usuarioActivos } from '../controllers/seguridadCtrl';
 
 const router = Router();
 
@@ -20,6 +20,7 @@ router.post("/api/seguridad/getCliente", validarJWT, getClientes);
 router.get("/api/seguridad/getReglasClave", validarJWT, getReglasClaveString);
 router.post("/api/seguridad/cambiarClave", validarJWT, cambiarClave);
 router.post("/api/seguridad/resetPassword", validarJWT, resetPassword);
+router.post("/api/seguridad/getusuarios", validarJWT, usuarioActivos);
 router.post("/api/seguridad/changePassword", changePassword);
 
 export default router;
